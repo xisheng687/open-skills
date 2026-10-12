@@ -2,68 +2,53 @@
 
 [简体中文](README.zh-CN.md)
 
-Reusable, public Agent Skills for practical workflows. Each skill lives in its own folder under `skills/`, so the collection can grow without installing everything at once.
+A public collection of practical Agent Skills, with English and Chinese guides. Pick the skills you need; installing the entire collection is unnecessary.
 
-## Available skills
+## Skill catalog
 
-| Skill | What it does |
-| --- | --- |
-| [Agent Tool Discovery](skills/agent-tool-discovery/SKILL.md) | Audit and repair how local AI agents discover shared Skills, MCP servers, and CLIs; preserve existing configuration and verify actual availability. |
+| Category | Skill | Value | Download |
+| --- | --- | --- | --- |
+| Agent tooling | [Agent Tool Discovery](skills/agent-tool-discovery/README.md) | Find and repair tools that work in one local agent but are missing in another. Covers Skills, MCP, and CLI discovery while preserving configuration. | [ZIP](https://github.com/xisheng687/open-skills/releases/download/agent-tool-discovery-v1.0.1/agent-tool-discovery.zip) |
 
-## Why Agent Tool Discovery?
+**Currently published: 1 skill.** This repository contains that skill's full instructions, references, bilingual prompts, and usage guides. It does not include the maintainer's private or previously installed skills.
 
-**Installed once. Invisible elsewhere.** A skill added to one agent may never appear in another. MCP clients use different configuration formats and authentication sessions. A CLI can work in a terminal while a desktop agent cannot find it. More agents often mean duplicate skills, conflicting versions, and repeated setup.
+Categories are labels, not nested installation directories. See [contribution and classification conventions](CONTRIBUTING.md) for adding more skills.
 
-This skill turns “I already installed it—why can't you find it?” into a structured diagnosis and repair:
+## Download and use
 
-- Detect installed agents, versions, and execution environments, with a seed catalog of international and Chinese products.
-- Reuse a central user-skill source; prefer native discovery, then per-skill links or tracked copies where supported.
-- Adapt MCP definitions per client while preserving scopes, disabled states, permissions, and separate OAuth logins.
-- Check CLI paths and runtime requirements instead of reinstalling them blindly.
-- Add a local tool index and persistent lookup rules, then distinguish files present, client discovery, and successful calls.
-- Offer scheduled checks only after the user opts in; automated repairs need separate authorization.
+1. Download an individual Skill ZIP from [Releases](https://github.com/xisheng687/open-skills/releases), or download/clone the repository and extract `skills/<skill-name>/`.
+2. Keep the entire Skill folder, including references, resources, and its license. A repository ZIP is not a single-Skill import package.
+3. Follow that skill's English or Chinese README. Import through your client's supported mechanism, or use its copy-and-paste prompts where provided.
 
-It does **not** require a new tool manager, convert every API to MCP, or promise universal compatibility.
+For the first skill: [English guide](skills/agent-tool-discovery/README.md) · [中文指南](skills/agent-tool-discovery/README.zh-CN.md) · [English prompt](skills/agent-tool-discovery/references/client-prompt.en.md) · [中文提示词](skills/agent-tool-discovery/references/client-prompt.zh-CN.md).
 
-## Use it
+If you need help installing, attach the individual Skill ZIP or give your agent its extracted folder path and ask:
 
-### As an installed Skill
+> Install only this Skill into this client's confirmed user-skill directory. Compare any existing same-name package first and preserve conflicts. Keep the full package and verify discovery in a new session. Do not execute its workflow yet.
 
-Download or clone this repository, then import **only** `skills/agent-tool-discovery/` using your agent's supported local-skill installation method. Keep the whole folder, including its `references/` and `agents/` subfolders.
+Skill invocation syntax and installation paths vary by product and version. For local clients supporting a shared directory, use `~/.agents/skills/<skill-name>/`; Claude Code uses its own `~/.claude/skills/<skill-name>/` entry. Confirm actual support before writing anything. Cloud clients may not have access to local files.
 
-For local clients that natively support it, the shared user location is `~/.agents/skills/agent-tool-discovery/`. Other clients may require their own entry; for example, Claude Code uses `~/.claude/skills/agent-tool-discovery/`. Confirm the current product/version and compare any existing same-name skill before installation. Do not blindly replace an existing directory.
+## What is included?
 
-Example requests:
+```text
+skills/
+  agent-tool-discovery/
+    SKILL.md
+    README.md
+    README.zh-CN.md
+    LICENSE
+    agents/openai.yaml
+    references/
+```
 
-> Use the agent-tool-discovery skill to audit this computer's agents and shared tools. Report findings only; do not change anything.
+Every new skill gets a stable `skills/<name>/` folder, category/tags in its metadata, bilingual guides, and a catalog row. Keep scripts and assets inside that skill only when needed. [CONTRIBUTING.md](CONTRIBUTING.md) explains the full process.
 
-> Use the agent-tool-discovery skill to inspect and repair tool discovery across my installed local agents. Preserve existing configuration. Ask me when login or an unresolved conflict requires my input.
+## Privacy and verification
 
-In Codex, you can explicitly invoke `$agent-tool-discovery`. Other clients use their own skill invocation mechanisms.
+Only generic instructions and public-source references belong here. Do not commit credentials, machine inventories, personal paths, private endpoints, backups, or customer data. `.gitignore` helps prevent accidental additions but is not a privacy guarantee.
 
-### Without installing a Skill
-
-Copy the [complete Chinese client prompt](skills/agent-tool-discovery/references/client-prompt.zh-CN.md) into an agent that can access your local computer. For English, use the example requests above together with the [skill instructions](skills/agent-tool-discovery/SKILL.md).
-
-### Optional scheduled checks
-
-After repair, the agent asks whether you want recurring checks. If you opt in, it confirms frequency, native scheduler support, and access to the intended local environment. Checks are read-only by default and quiet when nothing changes. Repair permission is a separate choice.
-
-## Compatibility and verification
-
-This is an instruction-based skill, not a background service or an installer script. It works through tools already available to the executing agent. An agent without local access cannot inspect your computer. Cloud sessions and virtual machines may need separate setup.
-
-The catalog is a starting point, **not** a certified support matrix. Paths, product names, and loading rules must be checked against the installed version. Files written successfully do not prove another client loaded them. Unavailable logins or runtime tests must be reported as unverified.
-
-## Privacy
-
-The repository contains generic instructions and public documentation links, not machine inventories, credentials, personal paths, or account exports. The skill instructs agents to keep inventories, backups, and diagnostic reports local and outside public repositories. It includes no upload or telemetry script. Existing agent products and integrations have their own data-handling policies.
-
-## Contribute another skill
-
-Add `skills/<lowercase-hyphen-name>/SKILL.md` with `name` and `description` frontmatter. Include only references or scripts the workflow needs. Explain its value and usage in both README files. Use synthetic examples; never commit credentials, private endpoints, customer data, local reports, or machine-specific configuration.
+These are instruction-based skills unless their documentation states otherwise. Downloading or installing does not authorize executing a workflow. Read each skill's scope and give an explicit request. Static validation and packaging do not prove every client can run a skill; runtime limitations must be reported honestly.
 
 ## License
 
-[MIT](LICENSE).
-
+[MIT](LICENSE). Each standalone package includes a license copy.
