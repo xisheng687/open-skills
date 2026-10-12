@@ -1,9 +1,9 @@
 ---
 name: agent-tool-discovery
-description: Audit and repair how installed local AI agents discover shared Skills, MCP servers, and CLIs when tools work in one client but are missing in another. 检查并修复多个本地 Agent 之间的工具发现与共享问题。
+description: 检查并修复多个本地 AI Agent 之间的 Skills、MCP 和 CLI 工具发现与共享问题。Audit and repair shared tool discovery when an existing tool works in one local agent but is missing in another.
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
   category: "agent-tooling"
   tags: "agents, skills, mcp, cli, interoperability"
 ---

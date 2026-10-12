@@ -1,4 +1,4 @@
-# Adding and maintaining skills / 新增与维护技能
+# 新增与维护技能 / Adding and maintaining skills
 
 ## Structure / 目录结构
 
@@ -9,7 +9,7 @@ Keep one standalone skill per `skills/<name>/`. Use lowercase letters, digits, a
 Required / 必须包含：
 
 - `SKILL.md`: scope, triggers, instructions, authorization boundaries, and verification limits / 触发场景、执行流程、授权边界和验证限制。
-- `README.md` and `README.zh-CN.md`: pain point, value, installation, invocation, and limitations / 痛点、价值、中英文安装与使用说明。
+- `README.md`（简体中文主说明）和 `README.en.md`（英文辅助）：痛点、价值、安装、调用及限制 / Simplified Chinese primary guide and English guide: pain point, value, installation, invocation, and limitations.
 - `LICENSE`: currently MIT, consistent with the root license / 当前使用 MIT，与仓库许可证一致。
 - Frontmatter `metadata.version`, `metadata.category`, and `metadata.tags` / 版本、分类、标签。
 
@@ -45,10 +45,20 @@ Metadata values are strings; tags are a comma-separated string for portability. 
 
 元数据值使用字符串；标签用英文逗号分隔，减少客户端差异。技能中的“常见 Agent 清单”与仓库的“技能分类”是两回事。
 
-## Publish checklist / 发布步骤
+## 多语言说明 / Multilingual guides
 
-1. Add the complete skill folder and update both root README catalog tables. / 添加完整技能目录，并更新两份根 README 的目录表。
-2. Match English and Chinese behavior, including audit/repair, credentials, and optional scheduling. / 中英文执行边界一致，特别核对审计、修复、凭证及可选定时任务。
+默认 `README.md` 使用简体中文，英文辅助说明放在 `README.en.md`。需要时增加 `README.zh-Hant.md`、`README.fr.md`、`README.de.md` 和 `README.es.md`，使用统一语言导航。已有 `README.zh-CN.md` 保留为兼容入口，链接到默认中文页，避免维护两份重复正文。
+
+Simplified Chinese is primary in `README.md`; English lives in `README.en.md`. Add Traditional Chinese, French, German, and Spanish guides when useful, with a shared language selector. Keep legacy `README.zh-CN.md` as a link to the primary page rather than duplicating its content.
+
+每种介绍应覆盖痛点、价值、安装和调用方式、隐私、验证限制及可选自动任务。其他语言的介绍不等于完整流程已翻译：明确完整提示词有哪些语言，不暗示所有客户端已测试。产品名、命令、分类 ID 和技能目录保持一致，不通过重复堆砌关键词承诺搜索效果。以后只需中文和英文即可发布，其他翻译可逐步补齐；已提供的语言必须保持内容一致和链接有效。
+
+Each guide should cover value, installation/use, privacy, validation limits, and optional scheduling. State which languages have complete prompts; translated introductions do not imply translated workflows or tested clients. Keep product names, commands, category IDs, and skill paths stable. Chinese and English are sufficient for a new skill; add other languages incrementally and keep published translations consistent. Do not promise search rankings through keyword repetition.
+
+## 发布步骤 / Publish checklist
+
+1. 添加完整技能目录，更新中文主目录、英文目录及已有翻译中的技能列表。 / Add the complete skill folder and update the primary Chinese, English, and existing translated catalogs.
+2. 中文、英文和新增翻译的执行边界一致，特别核对审计、修复、凭证及可选定时任务。 / Keep behavior consistent across Chinese, English, and other translations, especially audit/repair, credentials, and scheduling.
 3. Validate frontmatter, relative links, and resources. Test scripts only in an isolated workspace with synthetic input. / 检查元数据、相对链接和引用文件；脚本测试只用隔离目录与虚构数据。
 4. Inspect every staged file and Git author identity for private information. Do not rely on .gitignore alone. / 检查所有待提交内容和提交署名，不能仅依赖忽略规则。
 5. Commit reviewed public files. Build an individual ZIP containing exactly `<name>/` and its complete package, then attach it to a GitHub release tagged `<skill-name>-v<version>`. Link that exact asset from the skill guide and catalog, so another skill's release will not break existing downloads. / 提交审查后的公开文件，打包只含 `<名称>/` 的完整独立 ZIP，并附到以 `<技能名称>-v<版本>` 标记的 GitHub Release。指南和目录链接固定版本的下载包，避免其他技能发布后旧下载链接失效。

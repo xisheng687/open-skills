@@ -1,5 +1,4 @@
 interface:
-  display_name: "Agent Tool Discovery"
-  short_description: "Find and repair shared tools across local AI agents"
-  default_prompt: "Use $agent-tool-discovery to inspect and repair tool discovery across my installed local agents while preserving existing configuration."
-
+  display_name: "Agent 工具发现与修复"
+  short_description: "检查并修复多个本地 Agent 的 Skills、MCP 和 CLI 发现问题"
+  default_prompt: "用 $agent-tool-discovery 检查并修复本地 Agent 的工具发现问题，保留现有配置，需要登录或解决冲突时再叫我。"

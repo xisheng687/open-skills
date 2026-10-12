@@ -1,54 +1,58 @@
 # Open Skills
 
-[简体中文](README.zh-CN.md)
+[简体中文](README.md) · [繁體中文](README.zh-Hant.md) · [English](README.en.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Español](README.es.md)
 
-A public collection of practical Agent Skills, with English and Chinese guides. Pick the skills you need; installing the entire collection is unnecessary.
+可公开分享、按需使用的实用 Agent Skills 合集，以简体中文为主，提供繁体中文、英语、法语、德语和西班牙语说明。选择需要的技能即可，无需一次安装整个仓库。
 
-## Skill catalog
+## 分类与技能目录
 
-| Category | Skill | Value | Download |
+| 分类 | 技能 | 价值 | 下载 |
 | --- | --- | --- | --- |
-| Agent tooling | [Agent Tool Discovery](skills/agent-tool-discovery/README.md) | Find and repair tools that work in one local agent but are missing in another. Covers Skills, MCP, and CLI discovery while preserving configuration. | [ZIP](https://github.com/xisheng687/open-skills/releases/download/agent-tool-discovery-v1.0.1/agent-tool-discovery.zip) |
+| Agent 工具与互通 | [Agent 工具发现与修复](skills/agent-tool-discovery/README.md) | 解决工具在一个 Agent 能用、换一个却找不到的问题，检查 Skills、MCP 和 CLI 接入，并保留原配置。 | [ZIP](https://github.com/xisheng687/open-skills/releases/download/agent-tool-discovery-v1.0.2/agent-tool-discovery.zip) |
 
-**Currently published: 1 skill.** This repository contains that skill's full instructions, references, bilingual prompts, and usage guides. It does not include the maintainer's private or previously installed skills.
+**目前公开发布 1 个 Skill。** 本仓库包含它的完整指令、引用、中英文提示词和六种语言的使用说明，不包含维护者本机的其他技能或私人资料。
 
-Categories are labels, not nested installation directories. See [contribution and classification conventions](CONTRIBUTING.md) for adding more skills.
+分类使用标签，不把安装目录套进多层分类文件夹。新增技能的方式见[贡献与分类规范](CONTRIBUTING.md)。
 
-## Download and use
+## 下载与使用
 
-1. Download an individual Skill ZIP from [Releases](https://github.com/xisheng687/open-skills/releases), or download/clone the repository and extract `skills/<skill-name>/`.
-2. Keep the entire Skill folder, including references, resources, and its license. A repository ZIP is not a single-Skill import package.
-3. Follow that skill's English or Chinese README. Import through your client's supported mechanism, or use its copy-and-paste prompts where provided.
+1. 从 [Releases](https://github.com/xisheng687/open-skills/releases) 下载单个 Skill ZIP；也可下载或克隆仓库，提取完整的 `skills/<技能名称>/`。
+2. 保留整个技能目录，包括引用、资源和许可证。仓库 ZIP 不等于可直接导入的单技能包。
+3. 按该技能目录中的对应语言 README，通过客户端支持的方法安装；也可以使用它提供的完整提示词。
 
-For the first skill: [English guide](skills/agent-tool-discovery/README.md) · [中文指南](skills/agent-tool-discovery/README.zh-CN.md) · [English prompt](skills/agent-tool-discovery/references/client-prompt.en.md) · [中文提示词](skills/agent-tool-discovery/references/client-prompt.zh-CN.md).
+第一个技能：[中文使用指南](skills/agent-tool-discovery/README.md) · [English guide](skills/agent-tool-discovery/README.en.md) · [完整中文提示词](skills/agent-tool-discovery/references/client-prompt.zh-CN.md) · [完整英文提示词](skills/agent-tool-discovery/references/client-prompt.en.md)。
 
-If you need help installing, attach the individual Skill ZIP or give your agent its extracted folder path and ask:
+不会安装时，把独立 Skill ZIP 附给 Agent，或提供解压目录，发送：
 
-> Install only this Skill into this client's confirmed user-skill directory. Compare any existing same-name package first and preserve conflicts. Keep the full package and verify discovery in a new session. Do not execute its workflow yet.
+> 只把这个 Skill 安装到当前客户端已确认的用户技能目录。已有同名包时先比较，保留冲突版本。保留完整技能包，并在新会话验证能否发现。先不要运行它的业务流程。
 
-Skill invocation syntax and installation paths vary by product and version. For local clients supporting a shared directory, use `~/.agents/skills/<skill-name>/`; Claude Code uses its own `~/.claude/skills/<skill-name>/` entry. Confirm actual support before writing anything. Cloud clients may not have access to local files.
+不同产品和版本的安装路径与调用方式可能不同。原生支持共享目录的本地客户端可以使用 `~/.agents/skills/<技能名称>/`；Claude Code 使用自己的 `~/.claude/skills/<技能名称>/` 入口。写入前确认实际支持情况。云端客户端不一定能读取本机文件。
 
-## What is included?
+## 仓库里有什么？
 
 ```text
 skills/
   agent-tool-discovery/
     SKILL.md
     README.md
-    README.zh-CN.md
+    README.en.md
+    README.zh-Hant.md
+    README.fr.md
+    README.de.md
+    README.es.md
     LICENSE
     agents/openai.yaml
     references/
 ```
 
-Every new skill gets a stable `skills/<name>/` folder, category/tags in its metadata, bilingual guides, and a catalog row. Keep scripts and assets inside that skill only when needed. [CONTRIBUTING.md](CONTRIBUTING.md) explains the full process.
+以后每个技能使用稳定的 `skills/<名称>/` 目录，在元数据里标记分类和标签，附中文主说明和英文辅助说明，并按需要增加其他语言，再登记一行技能目录。需要的脚本和资源只放在对应技能里，避免相互依赖。[CONTRIBUTING.md](CONTRIBUTING.md) 提供完整新增流程。
 
-## Privacy and verification
+## 隐私与验证
 
-Only generic instructions and public-source references belong here. Do not commit credentials, machine inventories, personal paths, private endpoints, backups, or customer data. `.gitignore` helps prevent accidental additions but is not a privacy guarantee.
+这里只存通用指令和公开资料，不提交凭证、电脑清单、私人路径、内部服务地址、备份或客户数据。`.gitignore` 只能辅助防误提交，不能代替隐私检查。
 
-These are instruction-based skills unless their documentation states otherwise. Downloading or installing does not authorize executing a workflow. Read each skill's scope and give an explicit request. Static validation and packaging do not prove every client can run a skill; runtime limitations must be reported honestly.
+除非技能说明另有声明，这些是指令型 Skill。下载或安装不等于授权执行流程；请先阅读范围并给出明确请求。静态检查和打包通过不代表已在所有客户端运行验证，实际限制必须如实说明。
 
-## License
+## 许可证
 
-[MIT](LICENSE). Each standalone package includes a license copy.
+[MIT](LICENSE)，独立技能包也包含许可证副本。
