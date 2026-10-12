@@ -1,0 +1,5 @@
+interface:
+  display_name: "Agent Tool Discovery"
+  short_description: "Find and repair shared tools across local AI agents"
+  default_prompt: "Use $agent-tool-discovery to inspect and repair tool discovery across my installed local agents while preserving existing configuration."
+
